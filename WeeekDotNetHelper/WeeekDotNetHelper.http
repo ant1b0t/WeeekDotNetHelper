@@ -1,0 +1,6 @@
+@WeeekDotNetHelper_HostAddress = http://localhost:5250
+
+GET {{WeeekDotNetHelper_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
