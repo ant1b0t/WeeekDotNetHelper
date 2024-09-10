@@ -2,8 +2,8 @@
 {
     public enum TaskType
     {
-        Action = 0,
-        Meet = 1,
-        Call = 2,
+        Action = 1,
+        Meet = 2,
+        Call = 3,
     }
 }

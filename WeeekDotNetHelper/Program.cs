@@ -1,6 +1,8 @@
 global using Newtonsoft.Json;
 global using Newtonsoft.Json.Converters;
 
+using WeeekDotNetHelper.Service.Tasks;
+
 namespace WeeekDotNetHelper
 {
     public class Program
@@ -15,6 +17,14 @@ namespace WeeekDotNetHelper
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddHttpClient("apiWeeek", c =>
+            {
+                c.BaseAddress = new Uri(builder.Configuration["WeeekApi:ApiUrl"]);
+            });
+
+            builder.Services.AddScoped<ITasksService, TasksService>();
+            builder.Services.AddScoped<IAppSettings, AppSettings>();
 
             var app = builder.Build();
 

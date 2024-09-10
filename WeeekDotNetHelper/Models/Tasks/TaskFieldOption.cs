@@ -4,8 +4,6 @@
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-
-        [JsonConverter(typeof(StringEnumConverter))]
-        public TaskFieldOptionColor Color { get; set; }
+        public string Color { get; set; }
     }
 }

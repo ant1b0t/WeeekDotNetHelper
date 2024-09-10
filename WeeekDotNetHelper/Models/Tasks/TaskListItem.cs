@@ -22,23 +22,25 @@
         /// <summary>
         /// 
         /// </summary>
-        public string Date { get; set; }
+        public string? Date { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string Time { get; set; }
+        public string? Time { get; set; }
         /// <summary>
         /// In minutes
         /// </summary>
-        public int Duration { get; set; }
+        public int? Duration { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public TaskType type { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public TaskType? Type { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public TaskPriority priority { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public TaskPriority? Priority { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -46,11 +48,11 @@
         /// <summary>
         /// ID of the user who created the task
         /// </summary>
-        public string AuthorId { get; set; }
+        public Guid AuthorId { get; set; }
         /// <summary>
         /// ID of the user who is executing the task
         /// </summary>
-        public string? UserId { get; set; }
+        public Guid? UserId { get; set; }
         /// <summary>
         /// 
         /// </summary>

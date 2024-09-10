@@ -4,6 +4,7 @@
     {
         public Guid Id { get; set; }
         public Guid CreatorId { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
         public TaskAttachmentService Service { get; set; }
         public string Name { get; set; }
         /// <summary>
