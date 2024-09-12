@@ -127,6 +127,12 @@ namespace WeeekDotNetHelper.Service.Tasks
                 var content = new StringContent(JsonConvert.SerializeObject(taskData), Encoding.UTF8, "application/json");
 
                 var response = await client.PutAsync(url, content);
+                var responseData = await response.Content.ReadAsStringAsync();
+                var jsonObject = JObject.Parse(responseData);
+
+                bool isSuccess = jsonObject.Value<bool>("success");
+                if (!isSuccess)
+                    throw new Exception("API request was not successful.");
 
                 if (!response.IsSuccessStatusCode)
                 {
